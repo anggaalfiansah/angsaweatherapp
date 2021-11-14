@@ -47,3 +47,19 @@ export const homeDataRawProcessPeringatan = async raw => {
   );
   return peringatan;
 };
+export const homeDataRawProcessCitra = async raw => {
+  const citra = [];
+  const processedSatelit = await parse(raw.satelit);
+  const satelit = processedSatelit[1].attributes[1].value;
+  citra.push({nama: 'Citra Satelit', gambar: satelit});
+  const processedGelombang = await parse(raw.gelombang);
+  const gelombang = processedGelombang[1].attributes[1].value;
+  citra.push({nama: 'Prakiraan Tinggi Gelombang', gambar: gelombang});
+  const processedAngin = await parse(raw.angin);
+  const angin = processedAngin[1].attributes[1].value;
+  citra.push({nama: 'Prakiraan Angin', gambar: angin});
+  const processedKebakaranHutan = await parse(raw.kebakaran_hutan);
+  const kebakaran_hutan = processedKebakaranHutan[1].attributes[1].value;
+  citra.push({nama: 'Potensi Kebakaran Hutan', gambar: kebakaran_hutan});
+  return citra;
+};

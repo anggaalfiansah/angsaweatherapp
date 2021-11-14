@@ -5,3 +5,6 @@ export const processRawDataHomeCuaca = raw_data => {
 export const processRawDataHomePeringatan = raw_data => {
   return {type: 'REQUEST_PROCESSING_DATA_PERINGATAN', payload: raw_data};
 };
+export const processRawDataHomeCitra = raw_data => {
+  return {type: 'REQUEST_PROCESSING_DATA_CITRA', payload: raw_data};
+};

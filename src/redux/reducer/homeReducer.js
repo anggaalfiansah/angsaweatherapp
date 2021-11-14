@@ -6,6 +6,9 @@ const initialState = {
   listPeringatan: [],
   loadingPeringatan: false,
   messagePeringatan: '',
+  listCitra: [],
+  loadingCitra: false,
+  messageCitra: '',
 };
 
 const homeReducer = (state = initialState, action) => {
@@ -46,6 +49,25 @@ const homeReducer = (state = initialState, action) => {
         listPeringatan: [],
         messagePeringatan: action.message,
       };
+    case 'REQUEST_PROCESSING_DATA_CITRA':
+      return {
+        ...state,
+        loadingCitra: true,
+      };
+    case 'PROCESSING_DATA_CITRA_SUCCESS':
+      return {
+        ...state,
+        loadingCitra: false,
+        listCitra: action.data,
+      };
+    case 'PROCESSING_DATA_CITRA_FAIL':
+      return {
+        ...state,
+        loadingCitra: false,
+        listCitra: [],
+        messageCitra: action.message,
+      };
+
     default:
       return state;
   }

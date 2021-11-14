@@ -2,7 +2,6 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import Carousel from 'react-native-snap-carousel';
 import {baseFont} from '../../constant/constant';
 
