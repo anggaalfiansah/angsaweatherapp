@@ -9,6 +9,9 @@ const initialState = {
   listCitra: [],
   loadingCitra: false,
   messageCitra: '',
+  gempaTerkini: null,
+  loadingGempaTerkini: false,
+  messageGempaTerkini: '',
 };
 
 const homeReducer = (state = initialState, action) => {
@@ -66,6 +69,24 @@ const homeReducer = (state = initialState, action) => {
         loadingCitra: false,
         listCitra: [],
         messageCitra: action.message,
+      };
+    case 'REQUEST_PROCESSING_DATA_GEMPA_TERKINI':
+      return {
+        ...state,
+        loadingGempaTerkini: true,
+      };
+    case 'PROCESSING_DATA_GEMPA_TERKINI_SUCCESS':
+      return {
+        ...state,
+        loadingGempaTerkini: false,
+        gempaTerkini: action.data,
+      };
+    case 'PROCESSING_DATA_GEMPA_TERKINI_FAIL':
+      return {
+        ...state,
+        loadingGempaTerkini: false,
+        gempaTerkini: [],
+        messageGempaTerkini: action.message,
       };
 
     default:

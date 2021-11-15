@@ -1,17 +1,17 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {Text, StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CarousellCuaca from '../../component/CarousellCuaca';
 import CarousellPeringatan from '../../component/CarousellPeringatan';
-import BaseDataScrapper from '../../component/Scrapper/BaseDataScrapper';
+import Scrapper from '../../component/Scrapper';
 
 const HomeScreen = () => {
   return (
     <LinearGradient colors={['#ff99cc', '#FFFFFF']} style={styles.container}>
       <CarousellCuaca />
       <CarousellPeringatan />
-      <BaseDataScrapper />
+      <Scrapper />
     </LinearGradient>
   );
 };

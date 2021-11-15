@@ -9,7 +9,7 @@ import {
 } from '../../redux/action';
 import {base_url_BMKG} from '../../constant/constant';
 
-const BaseDataScrapper = () => {
+const HomePageScrapper = () => {
   const [scrapper, setScrapper] = useState(true);
   const dispatch = useDispatch();
   const INJECTED_JAVASCRIPT = `(() => {
@@ -21,7 +21,11 @@ const BaseDataScrapper = () => {
       const angin = document.querySelector("#klimatologi > div > div:nth-child(2) > div:nth-child(4) > div.img-mkg-home-bg > a").innerHTML
       const kebakaran_hutan = document.querySelector("#klimatologi > div > div:nth-child(2) > div:nth-child(5) > div.img-mkg-home-bg > a").innerHTML
       const citra = {satelit,gelombang,angin,kebakaran_hutan}
-      const data = {cuaca,peringatan,citra}
+      const gambar_gempa = document.querySelector("#meteorologi-geofisika > div > div > div.col-md-4.md-margin-bottom-10 > div.gempabumi-home-bg.margin-top-13 > div > div:nth-child(1) > a").innerHTML
+      const detail_gempa = document.querySelector("#meteorologi-geofisika > div > div > div.col-md-4.md-margin-bottom-10 > div.gempabumi-home-bg.margin-top-13 > div > div.col-md-6.col-xs-6.gempabumi-detail.no-padding > ul").innerHTML
+      const detail_gempa2 = document.querySelector("#meteorologi-geofisika > div > div > div.col-md-4.md-margin-bottom-10 > div.gempabumi-home-bg.margin-top-13 > ul").innerHTML
+      const gempa_terkini = {gambar_gempa,detail_gempa,detail_gempa2}
+      const data = {cuaca,peringatan,citra,gempa_terkini}
       ReactNativeWebView.postMessage(JSON.stringify(data));
       }, 3000);
     })();`;
@@ -31,6 +35,7 @@ const BaseDataScrapper = () => {
       dispatch(processRawDataHomeCuaca(data?.cuaca));
       dispatch(processRawDataHomePeringatan(data?.peringatan));
       dispatch(processRawDataHomeCitra(data?.citra));
+      console.tron.log(data.gempa_terkini);
       setScrapper(false);
     }
   };
@@ -51,4 +56,4 @@ const BaseDataScrapper = () => {
   );
 };
 
-export default BaseDataScrapper;
+export default HomePageScrapper;
