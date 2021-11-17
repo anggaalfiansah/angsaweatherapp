@@ -63,3 +63,31 @@ export const homeDataRawProcessCitra = async raw => {
   citra.push({nama: 'Potensi Kebakaran Hutan', gambar: kebakaran_hutan});
   return citra;
 };
+export const dataRawProcessPerkiraanCuacaIndonesia = async raw => {
+  console.tron.log(raw);
+  const perkiraanCuaca = [];
+  const tanggal = [];
+  const listData = [];
+  const data = [];
+  const processedTanggal = await parse(raw.tanggal_cuaca);
+  await Promise.all(
+    processedTanggal
+      .filter(item => item.tagName)
+      .map(item => {
+        const tgl = item.children[0].children[0].content;
+        tanggal.push(tgl.replace(/\//g, ''));
+      }),
+  );
+  const processedData = await parse(raw.data_cuaca);
+  await Promise.all(
+    processedData
+      .filter(item => item.children)
+      .map(item => {
+        const subData = item.children[1].children[1].children.filter(
+          items => items.tagName === 'tbody',
+        );
+        listData.push(subData);
+      }),
+  );
+  console.tron.log(listData);
+};

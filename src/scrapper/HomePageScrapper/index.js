@@ -35,7 +35,6 @@ const HomePageScrapper = () => {
       dispatch(processRawDataHomeCuaca(data?.cuaca));
       dispatch(processRawDataHomePeringatan(data?.peringatan));
       dispatch(processRawDataHomeCitra(data?.citra));
-      console.tron.log(data.gempa_terkini);
       setScrapper(false);
     }
   };
