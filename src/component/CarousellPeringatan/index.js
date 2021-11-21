@@ -28,6 +28,7 @@ const CarousellPeringatan = () => {
         autoplay={true}
         autoplayInterval={5000}
         loop={true}
+        initialNumToRender={listPeringatan.length}
       />
     </View>
   );
@@ -36,14 +37,24 @@ const CarousellPeringatan = () => {
 export default CarousellPeringatan;
 
 const styles = StyleSheet.create({
-  container: {height: '35%'},
-  title: {fontSize: 15, fontWeight: 'bold', marginBottom: 5},
+  container: {
+    height: '35%',
+    paddingBottom: 5,
+    marginBottom: 10,
+    borderBottomWidth: 1,
+  },
+  title: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    textAlign: 'center',
+  },
   itemContainer: {
     backgroundColor: 'rgba(255, 56, 56, 0.45)',
     padding: 10,
     alignItems: 'center',
     borderRadius: 20,
-    height: '90%',
+    height: '100%',
   },
   icon: {width: 50, height: 50, marginVertical: 5},
   kota: {

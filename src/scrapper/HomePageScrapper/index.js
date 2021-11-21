@@ -16,11 +16,13 @@ const HomePageScrapper = () => {
     setInterval(() => {
       const cuaca = document.querySelector("#meteorologi-geofisika > div > div > div.col-md-8.md-margin-bottom-20 > div.prakicu-kota-besar.no-space-carousel-block.owl-carousel-v1.margin-bottom-10.md-margin-bottom-20 > div.prakicu-kota-besar-bg > div > div.owl-wrapper-outer > div").innerHTML
       const peringatan = document.querySelector("#meteorologi-geofisika > div > div > div.col-md-8.md-margin-bottom-20 > div.peringatan-dini-home.owl-carousel-v1.md-margin-bottom-20 > div > div.peringatan-dini-home-bg.col-md-10 > div > div.owl-wrapper-outer > div").innerHTML
+      const iklim = document.querySelector("#klimatologi > div > div.row.margin-bottom-30.md-margin-bottom-10 > div:nth-child(2) > div.img-mkg-home-bg > a").innerHTML
+      const tanpa_hujan = document.querySelector("#klimatologi > div > div.row.margin-bottom-30.md-margin-bottom-10 > div:nth-child(3) > div.img-mkg-home-bg > a").innerHTML
       const satelit = document.querySelector("#klimatologi > div > div:nth-child(2) > div:nth-child(1) > div.img-mkg-home-bg > a").innerHTML
       const gelombang = document.querySelector("#klimatologi > div > div:nth-child(2) > div:nth-child(2) > div.img-mkg-home-bg > a").innerHTML
       const angin = document.querySelector("#klimatologi > div > div:nth-child(2) > div:nth-child(4) > div.img-mkg-home-bg > a").innerHTML
       const kebakaran_hutan = document.querySelector("#klimatologi > div > div:nth-child(2) > div:nth-child(5) > div.img-mkg-home-bg > a").innerHTML
-      const citra = {satelit,gelombang,angin,kebakaran_hutan}
+      const citra = {iklim,tanpa_hujan,satelit,gelombang,angin,kebakaran_hutan}
       const gambar_gempa = document.querySelector("#meteorologi-geofisika > div > div > div.col-md-4.md-margin-bottom-10 > div.gempabumi-home-bg.margin-top-13 > div > div:nth-child(1) > a").innerHTML
       const detail_gempa = document.querySelector("#meteorologi-geofisika > div > div > div.col-md-4.md-margin-bottom-10 > div.gempabumi-home-bg.margin-top-13 > div > div.col-md-6.col-xs-6.gempabumi-detail.no-padding > ul").innerHTML
       const detail_gempa2 = document.querySelector("#meteorologi-geofisika > div > div > div.col-md-4.md-margin-bottom-10 > div.gempabumi-home-bg.margin-top-13 > ul").innerHTML

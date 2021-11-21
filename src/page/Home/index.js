@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CarousellCuaca from '../../component/CarousellCuaca';
 import CarousellPeringatan from '../../component/CarousellPeringatan';
@@ -10,12 +10,10 @@ import Scrapper from '../../component/Scrapper';
 const HomeScreen = () => {
   return (
     <LinearGradient colors={['#ff99cc', '#FFFFFF']} style={styles.container}>
-      <ScrollView>
-        <CarousellCuaca />
-        <CarousellPeringatan />
-        <CarousellCitra />
-        <Scrapper />
-      </ScrollView>
+      <CarousellCuaca />
+      <CarousellPeringatan />
+      <CarousellCitra />
+      <Scrapper />
     </LinearGradient>
   );
 };
@@ -27,6 +25,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    padding: '2%',
+    padding: '1%',
   },
 });

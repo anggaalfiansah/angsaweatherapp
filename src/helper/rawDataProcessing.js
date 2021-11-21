@@ -49,6 +49,12 @@ export const homeDataRawProcessPeringatan = async raw => {
 };
 export const homeDataRawProcessCitra = async raw => {
   const citra = [];
+  const processedIklim = await parse(raw.iklim);
+  const iklim = processedIklim[1].attributes[1].value;
+  citra.push({nama: 'Iklim', gambar: iklim});
+  const processedTanpaHujan = await parse(raw.tanpa_hujan);
+  const tanpa_hujan = processedTanpaHujan[1].attributes[1].value;
+  citra.push({nama: 'Hari Tanpa Hujan', gambar: tanpa_hujan});
   const processedSatelit = await parse(raw.satelit);
   const satelit = processedSatelit[1].attributes[1].value;
   citra.push({nama: 'Citra Satelit', gambar: satelit});
