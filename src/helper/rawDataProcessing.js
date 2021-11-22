@@ -69,8 +69,9 @@ export const homeDataRawProcessCitra = async raw => {
   citra.push({nama: 'Potensi Kebakaran Hutan', gambar: kebakaran_hutan});
   return citra;
 };
+
+// proses perkiraan cuaca indonesia selama 3 hari
 export const dataRawProcessPerkiraanCuacaIndonesia = async raw => {
-  console.tron.log(raw);
   const perkiraanCuaca = [];
   const tanggal = [];
   const listData = [];
@@ -81,7 +82,7 @@ export const dataRawProcessPerkiraanCuacaIndonesia = async raw => {
       .filter(item => item.tagName)
       .map(item => {
         const tgl = item.children[0].children[0].content;
-        tanggal.push(tgl.replace(/\//g, ''));
+        tanggal.push(tgl);
       }),
   );
   const processedData = await parse(raw.data_cuaca);
@@ -95,5 +96,44 @@ export const dataRawProcessPerkiraanCuacaIndonesia = async raw => {
         listData.push(subData);
       }),
   );
-  console.tron.log(listData);
+  await Promise.all(
+    listData.map(async item => {
+      const kotaPertama = await getDetailPerkiraanCuacaPerKota(
+        item[0].children[0],
+      );
+      const kotaLainnya = await getDetailKotaLainnya(item[1]);
+      data.push([kotaPertama, ...kotaLainnya]);
+    }),
+  );
+  await Promise.all(
+    tanggal.map((item, index) => {
+      const hasilAkhir = {
+        tanggal: item,
+        data: data[index],
+      };
+      perkiraanCuaca.push(hasilAkhir);
+    }),
+  );
+  return perkiraanCuaca;
+};
+const getDetailKotaLainnya = async dataParsed => {
+  const data = dataParsed.children.filter(item => item.tagName);
+  const listData = [];
+  await Promise.all(
+    data.map(async item => {
+      const dataProcessed = await getDetailPerkiraanCuacaPerKota(item);
+      listData.push(dataProcessed);
+    }),
+  );
+  return listData;
+};
+const getDetailPerkiraanCuacaPerKota = dataParsed => {
+  const data = dataParsed.children.filter(item => item.tagName);
+  const kota = data[0].children[0].children[0].content;
+  const icon = data[1].children[0].attributes[0].value;
+  const kondisi = data[1].children[1].children[0].content;
+  const suhu = data[data.length - 2]?.children[0].content;
+  const kelembapan = data[data.length - 1]?.children[0].content;
+  const hasil = {kota, icon, kondisi, suhu, kelembapan};
+  return hasil;
 };
