@@ -12,7 +12,7 @@ const CarousellCuaca = () => {
 
   const renderCuacaItem = ({item}) => {
     const siangMalam =
-      Number(item.waktu.slice(0, 2)) < 19
+      Number(item.waktu.slice(0, 2)) < 19 && Number(item.waktu.slice(0, 2)) > 5
         ? ['#4db8ff', '#e6f5ff']
         : ['#000066', '#333399'];
     return (
