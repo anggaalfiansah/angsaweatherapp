@@ -26,8 +26,8 @@ const CarousellCitra = () => {
     <Carousel
       data={listCitra}
       renderItem={renderCitraItem}
-      sliderWidth={width * 0.925}
-      itemWidth={width * 0.9}
+      sliderWidth={width}
+      itemWidth={width}
       layout={'default'}
       autoplay={true}
       autoplayInterval={5000}
@@ -41,10 +41,10 @@ export default CarousellCitra;
 
 const styles = StyleSheet.create({
   itemContainer: {
-    backgroundColor: '#fff',
-    padding: 10,
+    height:'100%',
+    backgroundColor: 'rgba(252, 252, 252, 0.5)',
     alignItems: 'center',
-    borderRadius: 20,
+    padding:10
   },
   gambar: {width: 500, height: 250, marginVertical: 5},
   nama: {

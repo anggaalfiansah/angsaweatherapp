@@ -11,19 +11,19 @@ const CarousellPeringatan = () => {
   const renderPeringatanItem = ({item}) => {
     return (
       <View style={styles.itemContainer}>
-        <Text style={styles.kota}>{item.waktu_tempat}</Text>
-        <Text style={styles.waktu}>{item.keterangan}</Text>
+        <Text style={styles.title}>PERINGATAN DINI CUACA</Text>
+        <Text style={styles.waktuTempat}>{item.waktu_tempat}</Text>
+        <Text style={styles.keterangan}>{item.keterangan}</Text>
       </View>
     );
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>PERINGATAN DINI</Text>
       <Carousel
         data={listPeringatan}
         renderItem={renderPeringatanItem}
-        sliderWidth={width * 0.925}
-        itemWidth={width * 0.9}
+        sliderWidth={width}
+        itemWidth={width}
         layout={'default'}
         autoplay={true}
         autoplayInterval={5000}
@@ -39,29 +39,24 @@ export default CarousellPeringatan;
 const styles = StyleSheet.create({
   container: {
     height: '35%',
-    paddingBottom: 5,
-    marginBottom: 10,
     borderBottomWidth: 1,
   },
-  title: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    marginBottom: 5,
-    textAlign: 'center',
-  },
   itemContainer: {
-    backgroundColor: 'rgba(255, 56, 56, 0.45)',
-    padding: 10,
-    alignItems: 'center',
-    borderRadius: 20,
+    backgroundColor: 'rgba(255, 162, 0, 0.82)',
+    padding: 5,
     height: '100%',
   },
-  icon: {width: 50, height: 50, marginVertical: 5},
-  kota: {
+  title: {
     fontSize: 20,
+    textAlign: 'justify',
+    borderBottomWidth: 1,
+    borderBottomColor: '#fff',
+  },
+  waktuTempat: {
+    fontSize: 15,
     fontWeight: 'bold',
   },
-  waktu: {
+  keterangan: {
     ...baseFont,
     color: '#eee',
   },

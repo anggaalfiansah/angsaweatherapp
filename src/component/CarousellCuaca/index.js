@@ -32,12 +32,11 @@ const CarousellCuaca = () => {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>PERKIRAAN CUACA HARI INI</Text>
       <Carousel
         data={listCuaca}
         renderItem={renderCuacaItem}
-        sliderWidth={width * 0.925}
-        itemWidth={width * 0.9}
+        sliderWidth={width}
+        itemWidth={width}
         autoplay={true}
         autoplayInterval={5000}
         loop={true}
@@ -52,21 +51,13 @@ export default CarousellCuaca;
 const styles = StyleSheet.create({
   container: {
     height: '26%',
-    paddingBottom: 5,
-    marginBottom: 5,
     borderBottomWidth: 1,
   },
-  title: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    marginBottom: 5,
-    textAlign: 'center',
-  },
   itemContainer: {
+    height: '100%',
     backgroundColor: 'rgba(41, 56, 255, 0.09)',
-    padding: 10,
+    paddingVertical: 10,
     alignItems: 'center',
-    borderRadius: 20,
   },
   icon: {width: 50, height: 50, marginVertical: 5},
   kota: {
