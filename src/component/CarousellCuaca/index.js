@@ -41,6 +41,7 @@ const CarousellCuaca = () => {
         autoplayInterval={5000}
         loop={true}
         initialNumToRender={listCuaca.length}
+        removeClippedSubviews
       />
     </View>
   );

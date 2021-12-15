@@ -1,7 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from '../page/Home';
+import TabStack from './bottomTabNavigation';
+import WelcomeScreen from '../page/Welcome';
+
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
   return (
@@ -10,7 +12,7 @@ const AppStack = () => {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Home" component={TabStack} />
       </Stack.Navigator>
     </>
   );

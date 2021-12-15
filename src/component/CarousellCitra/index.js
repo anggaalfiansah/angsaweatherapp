@@ -33,6 +33,7 @@ const CarousellCitra = () => {
       autoplayInterval={5000}
       loop={true}
       initialNumToRender={listCitra.length}
+      removeClippedSubviews
     />
   );
 };
@@ -41,12 +42,12 @@ export default CarousellCitra;
 
 const styles = StyleSheet.create({
   itemContainer: {
-    height:'100%',
+    height: '100%',
     backgroundColor: 'rgba(252, 252, 252, 0.5)',
     alignItems: 'center',
-    padding:10
+    padding: 2,
   },
-  gambar: {width: 500, height: 250, marginVertical: 5},
+  gambar: {width: 500, height: 235, marginVertical: 5},
   nama: {
     fontSize: 20,
     fontWeight: 'bold',

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CarousellCuaca from '../../component/CarousellCuaca';
 import CarousellPeringatan from '../../component/CarousellPeringatan';
@@ -10,6 +10,7 @@ import Scrapper from '../../component/Scrapper';
 const HomeScreen = () => {
   return (
     <LinearGradient colors={['#ff99cc', '#FFFFFF']} style={styles.container}>
+      <StatusBar barStyle="default" backgroundColor={'#fff'} />
       <CarousellCuaca />
       <CarousellPeringatan />
       <CarousellCitra />

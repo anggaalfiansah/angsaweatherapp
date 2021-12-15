@@ -29,6 +29,7 @@ const CarousellPeringatan = () => {
         autoplayInterval={5000}
         loop={true}
         initialNumToRender={listPeringatan.length}
+        removeClippedSubviews
       />
     </View>
   );
